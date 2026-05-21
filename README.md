@@ -64,9 +64,9 @@ daily-dev-utils/
 │   ├── postgresql/
 │   └── consultas-uteis/
 │
-├── docs/
-│   ├── padrao-documentacao.md
-│   └── convencoes.md
+├── outros/
+|   ├── snippets.md
+│   └── padroes-commits.md
 │
 ├── README.md
 └── LICENSE
