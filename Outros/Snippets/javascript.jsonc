@@ -1,0 +1,400 @@
+{
+	// -------------------------------------------------------------------------
+	// Documentação JSDoc
+	// -------------------------------------------------------------------------
+	"JSDoc função completa": {
+		"prefix": [
+			"jsdoc",
+			"jsdocthis"
+		],
+		"body": [
+			"/**",
+			" * ${1:Descrição da função.}",
+			" *",
+			" * @since ${CURRENT_YEAR}-${CURRENT_MONTH}-${CURRENT_DATE}",
+			" * @author Pricila Oliveira",
+			" * @param {${2:string}} ${3:parametro} - ${4:Descrição do parâmetro.}",
+			" * @returns {${5:void}} ${6:Descrição do retorno.}",
+			" */"
+		],
+		"description": "Cria um bloco JSDoc completo para documentar uma função."
+	},
+	"JSDoc async": {
+		"prefix": [
+			"jsdocasync",
+			"jsdocpromise"
+		],
+		"body": [
+			"/**",
+			" * ${1:Descrição da função assíncrona.}",
+			" *",
+			" * @since ${CURRENT_YEAR}-${CURRENT_MONTH}-${CURRENT_DATE}",
+			" * @author Pricila Oliveira",
+			" * @async",
+			" * @param {${2:string}} ${3:parametro} - ${4:Descrição do parâmetro.}",
+			" * @returns {Promise<${5:void}>} ${6:Descrição do retorno.}",
+			" */"
+		],
+		"description": "Cria JSDoc para função assíncrona que retorna Promise."
+	},
+	"JSDoc com erro": {
+		"prefix": [
+			"jsdocthrows",
+			"jsdocerro"
+		],
+		"body": [
+			"/**",
+			" * ${1:Descrição da função.}",
+			" *",
+			" * @param {${2:string}} ${3:parametro} - ${4:Descrição do parâmetro.}",
+			" * @returns {${5:void}} ${6:Descrição do retorno.}",
+			" * @throws {${7:Error}} ${8:Descrição do erro lançado.}",
+			" */"
+		],
+		"description": "Cria JSDoc para função que pode lançar erro."
+	},
+	"JSDoc typedef objeto": {
+		"prefix": [
+			"jsdoctypedef",
+			"jsdoctype"
+		],
+		"body": [
+			"/**",
+			" * ${1:Descrição do objeto.}",
+			" *",
+			" * @typedef {Object} ${2:NomeDoTipo}",
+			" * @property {${3:number}} ${4:id} - ${5:Descrição da propriedade.}",
+			" * @property {${6:string}} ${7:nome} - ${8:Descrição da propriedade.}",
+			" */"
+		],
+		"description": "Cria um typedef JSDoc para documentar estrutura de objeto."
+	},
+	// -------------------------------------------------------------------------
+	// Funções
+	// -------------------------------------------------------------------------
+	"Função tradicional JS": {
+		"prefix": [
+			"jsfn",
+			"function"
+		],
+		"body": [
+			"/**",
+			" * ${1:Descrição da função.}",
+			" *",
+			" * @param {${2:string}} ${3:parametro} - ${4:Descrição do parâmetro.}",
+			" * @returns {${5:void}} ${6:Descrição do retorno.}",
+			" */",
+			"function ${7:nomeFuncao}(${3:parametro}) {",
+			"\t${0:// implementação}",
+			"}"
+		],
+		"description": "Cria uma função tradicional com JSDoc."
+	},
+	"Arrow function JS": {
+		"prefix": [
+			"jsarrow",
+			"afn"
+		],
+		"body": [
+			"/**",
+			" * ${1:Descrição da função.}",
+			" *",
+			" * @param {${2:string}} ${3:parametro} - ${4:Descrição do parâmetro.}",
+			" * @returns {${5:void}} ${6:Descrição do retorno.}",
+			" */",
+			"const ${7:nomeFuncao} = (${3:parametro}) => {",
+			"\t${0:// implementação}",
+			"};"
+		],
+		"description": "Cria uma arrow function com JSDoc."
+	},
+	"Função async JS": {
+		"prefix": [
+			"jsasync",
+			"asyncfn"
+		],
+		"body": [
+			"/**",
+			" * ${1:Descrição da função assíncrona.}",
+			" *",
+			" * @async",
+			" * @param {${2:string}} ${3:parametro} - ${4:Descrição do parâmetro.}",
+			" * @returns {Promise<${5:void}>} ${6:Descrição do retorno.}",
+			" */",
+			"async function ${7:nomeFuncao}(${3:parametro}) {",
+			"\t${0:// implementação}",
+			"}"
+		],
+		"description": "Cria uma função async com JSDoc."
+	},
+	"Arrow async JS": {
+		"prefix": [
+			"jsasyncarrow",
+			"asyncarrow"
+		],
+		"body": [
+			"/**",
+			" * ${1:Descrição da função assíncrona.}",
+			" *",
+			" * @async",
+			" * @param {${2:string}} ${3:parametro} - ${4:Descrição do parâmetro.}",
+			" * @returns {Promise<${5:void}>} ${6:Descrição do retorno.}",
+			" */",
+			"const ${7:nomeFuncao} = async (${3:parametro}) => {",
+			"\t${0:// implementação}",
+			"};"
+		],
+		"description": "Cria uma arrow function async com JSDoc."
+	},
+	// -------------------------------------------------------------------------
+	// Classes
+	// -------------------------------------------------------------------------
+	"Classe JS": {
+		"prefix": [
+			"jsclass",
+			"classjs"
+		],
+		"body": [
+			"/**",
+			" * ${1:Descrição da classe.}",
+			" *",
+			" * @class",
+			" */",
+			"class ${2:NomeClasse} {",
+			"\t/**",
+			"\t * Cria uma nova instância de ${2:NomeClasse}.",
+			"\t */",
+			"\tconstructor() {",
+			"\t\t${0:// inicialização}",
+			"\t}",
+			"}"
+		],
+		"description": "Cria uma classe JavaScript com JSDoc básico."
+	},
+	"Método de classe JS": {
+		"prefix": [
+			"jsmethod",
+			"metodjs"
+		],
+		"body": [
+			"/**",
+			" * ${1:Descrição do método.}",
+			" *",
+			" * @param {${2:string}} ${3:parametro} - ${4:Descrição do parâmetro.}",
+			" * @returns {${5:void}} ${6:Descrição do retorno.}",
+			" */",
+			"${7:nomeMetodo}(${3:parametro}) {",
+			"\t${0:// implementação}",
+			"}"
+		],
+		"description": "Cria um método de classe com JSDoc."
+	},
+	// -------------------------------------------------------------------------
+	// DOM e eventos
+	// -------------------------------------------------------------------------
+	"Selecionar elemento DOM": {
+		"prefix": [
+			"qs",
+			"queryselector"
+		],
+		"body": [
+			"const ${1:elemento} = document.querySelector('${2:seletor}');"
+		],
+		"description": "Cria um document.querySelector."
+	},
+	"Selecionar vários elementos DOM": {
+		"prefix": [
+			"qsa",
+			"queryselectorall"
+		],
+		"body": [
+			"const ${1:elementos} = document.querySelectorAll('${2:seletor}');"
+		],
+		"description": "Cria um document.querySelectorAll."
+	},
+	"Evento DOM": {
+		"prefix": [
+			"addevent",
+			"eventjs"
+		],
+		"body": [
+			"${1:elemento}.addEventListener('${2:click}', (${3:event}) => {",
+			"\t${0:// implementação}",
+			"});"
+		],
+		"description": "Cria um addEventListener com arrow function."
+	},
+	"Evento DOM com verificação": {
+		"prefix": [
+			"addeventsafe",
+			"eventsafe"
+		],
+		"body": [
+			"const ${1:elemento} = document.querySelector('${2:seletor}');",
+			"",
+			"if (${1:elemento}) {",
+			"\t${1:elemento}.addEventListener('${3:click}', (${4:event}) => {",
+			"\t\t${0:// implementação}",
+			"\t});",
+			"}"
+		],
+		"description": "Cria addEventListener validando se o elemento existe."
+	},
+	// -------------------------------------------------------------------------
+	// Array e objetos
+	// -------------------------------------------------------------------------
+	"Array map": {
+		"prefix": [
+			"jsmap",
+			"map"
+		],
+		"body": [
+			"const ${1:resultado} = ${2:lista}.map((${3:item}) => {",
+			"\treturn ${0:item};",
+			"});"
+		],
+		"description": "Cria um map com retorno explícito."
+	},
+	"Array filter": {
+		"prefix": [
+			"jsfilter",
+			"filter"
+		],
+		"body": [
+			"const ${1:resultado} = ${2:lista}.filter((${3:item}) => {",
+			"\treturn ${0:condicao};",
+			"});"
+		],
+		"description": "Cria um filter com retorno explícito."
+	},
+	"Array reduce": {
+		"prefix": [
+			"jsreduce",
+			"reduce"
+		],
+		"body": [
+			"const ${1:resultado} = ${2:lista}.reduce((${3:acumulador}, ${4:item}) => {",
+			"\treturn ${0:acumulador};",
+			"}, ${5:valorInicial});"
+		],
+		"description": "Cria um reduce com valor inicial."
+	},
+	"Destructuring objeto": {
+		"prefix": [
+			"jsdestruct",
+			"destruct"
+		],
+		"body": [
+			"const { ${1:propriedade} } = ${2:objeto};"
+		],
+		"description": "Cria destructuring de objeto."
+	},
+	// -------------------------------------------------------------------------
+	// Requisições
+	// -------------------------------------------------------------------------
+	"Fetch GET async": {
+		"prefix": [
+			"fetchget",
+			"jsfetchget"
+		],
+		"body": [
+			"const response = await fetch('${1:url}');",
+			"",
+			"if (!response.ok) {",
+			"\tthrow new Error(`Erro na requisição: ${response.status}`);",
+			"}",
+			"",
+			"const ${2:data} = await response.json();",
+			"$0"
+		],
+		"description": "Cria uma requisição GET com fetch e validação de status."
+	},
+	"Fetch POST async": {
+		"prefix": [
+			"fetchpost",
+			"jsfetchpost"
+		],
+		"body": [
+			"const response = await fetch('${1:url}', {",
+			"\tmethod: 'POST',",
+			"\theaders: {",
+			"\t\t'Content-Type': 'application/json'",
+			"\t},",
+			"\tbody: JSON.stringify(${2:payload})",
+			"});",
+			"",
+			"if (!response.ok) {",
+			"\tthrow new Error(`Erro na requisição: ${response.status}`);",
+			"}",
+			"",
+			"const ${3:data} = await response.json();",
+			"$0"
+		],
+		"description": "Cria uma requisição POST com fetch, JSON e validação de status."
+	},
+	// -------------------------------------------------------------------------
+	// Controle de erro
+	// -------------------------------------------------------------------------
+	"Try catch JS": {
+		"prefix": [
+			"jstry",
+			"tryjs"
+		],
+		"body": [
+			"try {",
+			"\t${0:// implementação}",
+			"} catch (${1:error}) {",
+			"\tconsole.error(${1:error});",
+			"}"
+		],
+		"description": "Cria bloco try/catch para JavaScript."
+	},
+	"Try catch async JS": {
+		"prefix": [
+			"jstryasync",
+			"tryasync"
+		],
+		"body": [
+			"try {",
+			"\t${0:// implementação async}",
+			"} catch (${1:error}) {",
+			"\tconsole.error('Erro ao executar operação:', ${1:error});",
+			"\tthrow ${1:error};",
+			"}"
+		],
+		"description": "Cria bloco try/catch para operações assíncronas."
+	},
+	// -------------------------------------------------------------------------
+	// Debug
+	// -------------------------------------------------------------------------
+	"Console log nomeado": {
+		"prefix": [
+			"cl",
+			"log"
+		],
+		"body": [
+			"console.log('${1:valor}:', ${1:valor});"
+		],
+		"description": "Cria console.log com nome da variável."
+	},
+	"Console table": {
+		"prefix": [
+			"ct",
+			"table"
+		],
+		"body": [
+			"console.table(${1:dados});"
+		],
+		"description": "Cria console.table para visualizar arrays ou objetos."
+	},
+	"Debugger": {
+		"prefix": [
+			"debugger",
+			"dbgj"
+		],
+		"body": [
+			"debugger;"
+		],
+		"description": "Insere uma parada de debug no JavaScript."
+	}
+}
