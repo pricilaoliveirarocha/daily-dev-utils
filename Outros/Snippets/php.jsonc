@@ -5,27 +5,27 @@
     "Debug print_r seguro": {
         "prefix": "phppdsafe",
         "body": ["echo '<pre>';", "echo htmlspecialchars(print_r(\\$${1:variavel}, true), ENT_QUOTES, 'UTF-8');", "echo '</pre>';", "exit;"],
-        "description": "Exibe print_r com escape HTML. Use quando a variável puder conter HTML/JS."
+        "description": "Exibe print_r com escape HTML. Use quando a variável puder conter HTML/JS.",
     },
     "Debug var_dump seguro": {
         "prefix": "phpvdsafe",
         "body": ["ob_start();", "var_dump(\\$${1:variavel});", "\\$debug = ob_get_clean();", "", "echo '<pre>';", "echo htmlspecialchars(\\$debug, ENT_QUOTES, 'UTF-8');", "echo '</pre>';", "exit;"],
-        "description": "Exibe var_dump com buffer e escape HTML. Use quando a variável puder conter HTML/JS."
+        "description": "Exibe var_dump com buffer e escape HTML. Use quando a variável puder conter HTML/JS.",
     },
     "Debug em log": {
         "prefix": "phplog",
         "body": ["error_log(var_export(\\$${1:variavel}, true));"],
-        "description": "Envia uma variável para o log usando var_export."
+        "description": "Envia uma variável para o log usando var_export.",
     },
     "Debug JSON no log": {
         "prefix": "phplogjson",
         "body": ["error_log(json_encode(\\$${1:variavel}, JSON_UNESCAPED_UNICODE | JSON_THROW_ON_ERROR));"],
-        "description": "Envia uma variável em JSON para o log."
+        "description": "Envia uma variável em JSON para o log.",
     },
     "Debug JSON no navegador": {
         "prefix": "phpjsondump",
         "body": ["header('Content-Type: application/json; charset=utf-8');", "echo json_encode(\\$${1:variavel}, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE | JSON_THROW_ON_ERROR);", "exit;"],
-        "description": "Exibe uma variável como JSON formatado no navegador e encerra a execução."
+        "description": "Exibe uma variável como JSON formatado no navegador e encerra a execução.",
     },
     // -------------------------------------------------------------------------
     // PHPDoc
@@ -47,9 +47,9 @@
             " * @return ${7|void,array<string, mixed>,?array<string, mixed>,bool,int,string,float,mixed|} ${8:Descrição do retorno.}",
             " *",
             " * @throws ${9:\\InvalidArgumentException} ${10:Quando os dados informados forem inválidos.}",
-            " */"
+            " */",
         ],
-        "description": "Cria um PHPDoc completo para métodos e funções."
+        "description": "Cria um PHPDoc completo para métodos e funções.",
     },
     "PHPDoc simples": {
         "prefix": "phpdocs",
@@ -61,64 +61,40 @@
             " * @author Pricila Oliveira",
             " *",
             " * @return ${2|void,array<string, mixed>,?array<string, mixed>,bool,int,string,float,mixed|}",
-            " */"
+            " */",
         ],
-        "description": "Cria um PHPDoc simples."
+        "description": "Cria um PHPDoc simples.",
     },
     "PHPDoc atualização": {
         "prefix": "phpdocup",
         "body": [" * @updated ${CURRENT_DATE}/${CURRENT_MONTH}/${CURRENT_YEAR} by ${1:Pricila Oliveira}$0"],
-        "description": "Gera linha @updated."
+        "description": "Gera linha @updated.",
     },
     // -------------------------------------------------------------------------
     // Métodos
     // -------------------------------------------------------------------------
-    "Método tipado": {
+    "Método com try/catch": {
         "prefix": "phpfun",
         "body": [
-            "${1|public,protected,private|} function ${2:nomeDaFuncao}(${3:array} \\$${4:dados}): ${5|void,array,?array,bool,int,string,float,mixed|} {",
-            "    ${6:// TODO: Implementar regra da função}",
-            "    $0",
-            "}"
-        ],
-        "description": "Cria método com visibilidade, parâmetro e retorno tipado."
-    },
-    "Método com retorno": {
-        "prefix": "phpreturn",
-        "body": [
-            "${1|public,protected,private|} function ${2:nomeDaFuncao}(${3:array} \\$${4:dados}): ${5:array} {",
-            "    ${6:// TODO: Implementar regra da função}",
-            "",
-            "    return \\$${7:resultado};",
-            "}"
-        ],
-        "description": "Cria método tipado com return."
-    },
-    "Método com try/catch": {
-        "prefix": "phptryfun",
-        "body": [
-            "${1|public,protected,private|} function ${2:nomeDaFuncao}(${3:int \\\\$idUsuario, int \\\\$idInstancia}): ${4:array} {",
+            "${1|public,protected,private|} function ${2:nomeDaFuncao}(${3:int \\$idUsuario, int \\$idInstancia}): ${4:array} {",
             "    try {",
-            "        \\\\$sql = \"${5:}\";",
+            "        \\$sql = \"${5}\";",
             "",
-            "        \\\\$stmt = \\\\$this->db->prepare(\\\\$sql);",
-            "        \\\\$stmt->bindValue(': ', \\\\${6:variavel}, PDO::PARAM_INT);",
-            "        \\\\$stmt->execute();",
+            "        \\$stmt = \\$this->db->prepare(\\$sql);",
+            "        ${6:\\$stmt->bindValue(':bind', \\$variavel, PDO::PARAM_INT);}",
+            "        ${7:// \\$stmt->bindValue(':bind', \\$variavel, PDO::PARAM_STR);}",
+            "        \\$stmt->execute();",
             "",
-            "        \\\\$${7:resultado} = \\\\$stmt->fetchAll(PDO::FETCH_ASSOC);",
+            "        \\$${8:resultado} = \\$stmt->fetchAll(PDO::FETCH_ASSOC);",
             "",
-            "        return \\\\$${8:resultado};",
-            "    } catch (\\\\Throwable \\\\$th) {",
-            "        handlerError(\\\\$th);",
+            "        return \\$${8:resultado};",
+            "    } catch (\\Throwable \\$th) {",
+            "        handlerError(\\$th);",
+            "        return [];",
             "    }",
-            "}"
+            "}",
         ],
-        "description": "Cria método com try/catch, prepare, bindValue, execute e retorno em array."
-    },
-    "Guard clause": {
-        "prefix": "phpguard",
-        "body": ["if (${1:empty(\\$dados)}) {", "    throw new ${2:\\InvalidArgumentException}('${3:Mensagem de erro.}');", "}"],
-        "description": "Cria validação antecipada com exceção."
+        "description": "Cria método com try/catch, prepare, binds dinâmicos, execute e retorno em array.",
     },
     // -------------------------------------------------------------------------
     // JSON / API
@@ -133,19 +109,19 @@
             "    echo json_encode(\\$dados, JSON_UNESCAPED_UNICODE | JSON_THROW_ON_ERROR);",
             "",
             "    exit;",
-            "}"
+            "}",
         ],
-        "description": "Cria método privado para resposta JSON padronizada."
+        "description": "Cria método privado para resposta JSON padronizada.",
     },
     "Responder JSON sucesso": {
         "prefix": "phpjsonok",
         "body": ["\\$this->responderJson([", "    'success' => true,", "    'message' => '${1:Operação realizada com sucesso.}',", "    'data' => \\$${2:dados},", "]);"],
-        "description": "Cria resposta JSON de sucesso."
+        "description": "Cria resposta JSON de sucesso.",
     },
     "Responder JSON erro": {
         "prefix": "phpjsonerr",
         "body": ["\\$this->responderJson([", "    'success' => false,", "    'message' => '${1:Erro ao processar solicitação.}',", "], ${2:400});"],
-        "description": "Cria resposta JSON de erro."
+        "description": "Cria resposta JSON de erro.",
     },
     "Ler JSON da requisição": {
         "prefix": "phpreadjson",
@@ -155,9 +131,9 @@
             "",
             "if (!is_array(\\$dados)) {",
             "    throw new \\InvalidArgumentException('JSON inválido.');",
-            "}"
+            "}",
         ],
-        "description": "Lê o corpo JSON da requisição e valida array."
+        "description": "Lê o corpo JSON da requisição e valida array.",
     },
     // -------------------------------------------------------------------------
     // PDO
@@ -177,9 +153,9 @@
             "    ':${4:parametro}' => ${5:\\$valor},",
             "]);",
             "",
-            "\\$${6:resultado} = \\$stmt->fetchAll(PDO::FETCH_ASSOC);"
+            "\\$${6:resultado} = \\$stmt->fetchAll(PDO::FETCH_ASSOC);",
         ],
-        "description": "Cria SELECT com PDO prepare/execute."
+        "description": "Cria SELECT com PDO prepare/execute.",
     },
     "PDO SELECT one": {
         "prefix": "pdofetch",
@@ -199,9 +175,9 @@
             "",
             "\\$${4:registro} = \\$stmt->fetch(PDO::FETCH_ASSOC);",
             "",
-            "return \\$${4:registro} ?: null;"
+            "return \\$${4:registro} ?: null;",
         ],
-        "description": "Cria SELECT que retorna um único registro ou null."
+        "description": "Cria SELECT que retorna um único registro ou null.",
     },
     "PDO INSERT": {
         "prefix": "pdoinsert",
@@ -219,9 +195,9 @@
             "    ':${2:campo}' => \\$${2:campo},",
             "]);",
             "",
-            "return (int) \\$this->db->lastInsertId();"
+            "return (int) \\$this->db->lastInsertId();",
         ],
-        "description": "Cria INSERT com PDO e retorna lastInsertId."
+        "description": "Cria INSERT com PDO e retorna lastInsertId.",
     },
     "PDO UPDATE": {
         "prefix": "pdoupdate",
@@ -237,14 +213,14 @@
             "return \\$stmt->execute([",
             "    ':${2:campo}' => \\$${2:campo},",
             "    ':${3:id}' => (int) \\$${3:id},",
-            "]);"
+            "]);",
         ],
-        "description": "Cria UPDATE com PDO."
+        "description": "Cria UPDATE com PDO.",
     },
     "PDO bindValue inteiro": {
         "prefix": "pdobindint",
         "body": ["\\$stmt->bindValue(':${1:parametro}', (int) \\$${2:valor}, PDO::PARAM_INT);"],
-        "description": "Cria bindValue com PDO::PARAM_INT."
+        "description": "Cria bindValue com PDO::PARAM_INT.",
     },
     "PDO IN dinâmico": {
         "prefix": "pdoin",
@@ -267,9 +243,9 @@
             "\\$stmt = \\$this->db->prepare(\\$sql);",
             "\\$stmt->execute(\\$${1:ids});",
             "",
-            "return \\$stmt->fetchAll(PDO::FETCH_ASSOC);"
+            "return \\$stmt->fetchAll(PDO::FETCH_ASSOC);",
         ],
-        "description": "Cria consulta com IN dinâmico usando placeholders posicionais."
+        "description": "Cria consulta com IN dinâmico usando placeholders posicionais.",
     },
     "PDO transação": {
         "prefix": "pdotrans",
@@ -287,9 +263,9 @@
             "    }",
             "",
             "    throw \\$th;",
-            "}"
+            "}",
         ],
-        "description": "Cria bloco de transação PDO com commit, rollback e relançamento."
+        "description": "Cria bloco de transação PDO com commit, rollback e relançamento.",
     },
     // -------------------------------------------------------------------------
     // Fluxo / Etapas
@@ -311,9 +287,9 @@
             "    }",
             "",
             "    throw new \\InvalidArgumentException('Etapa não encontrada para a ordem informada.');",
-            "}"
+            "}",
         ],
-        "description": "Cria método para buscar etapa do fluxo por id_ordem."
+        "description": "Cria método para buscar etapa do fluxo por id_ordem.",
     },
     "Buscar próxima etapa por ordem": {
         "prefix": "fluxproxima",
@@ -336,8 +312,8 @@
             "    }",
             "",
             "    return null;",
-            "}"
+            "}",
         ],
-        "description": "Cria método para buscar a próxima etapa do fluxo pela ordem atual."
-    }
+        "description": "Cria método para buscar a próxima etapa do fluxo pela ordem atual.",
+    },
 }
