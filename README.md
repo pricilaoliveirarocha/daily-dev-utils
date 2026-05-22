@@ -1,42 +1,37 @@
 # ✨ Daily Dev Utils ✨
 
-Sabe aquelas funções pequenas que salvam o dia e que a gente sempre acaba reescrevendo em algum projeto?
-Então. Esse repositório é justamente para isso.  
-
-## 💖 Sobre
-Aqui eu vou juntando funções úteis para o dia a dia de desenvolvimento, em várias linguagens, com uma organização simples para encontrar depois sem sofrer.
-
-Pode usar à vontade.  
-E se te ajudar, não custa nada deixar uma estrelinha, né xuxu? 💅
+[Português](#português) | [English](#english)
 
 ---
 
-O **Daily Dev Utils** é uma coleção de funções, helpers, snippets e utilitários que uso, estudo ou quero deixar guardados para consultar depois.
-A ideia não é criar uma super biblioteca cheia de regra, build, dependência e burocracia.
+## Português
 
-A ideia é bem mais simples:
+Uma coleção pessoal de funções, helpers, snippets e utilitários para o dia a dia de desenvolvimento. 💻✨
 
-> guardar soluções pequenas, úteis e reutilizáveis para problemas comuns do dia a dia.
+O **Daily Dev Utils** reúne soluções pequenas, reutilizáveis e bem organizadas para problemas comuns em projetos reais.
 
-Coisas como:
+---
 
-- formatar datas;
-- validar dados;
-- manipular strings;
-- trabalhar com arrays e objetos;
-- organizar consultas SQL;
-- criar helpers de debug;
-- guardar snippets que economizam tempo.
+## 💖 Sobre
 
-Basicamente, é minha caixinha de ferramentas dev para quando bate o clássico:
+Este repositório funciona como uma caixinha de ferramentas dev: um lugar para guardar códigos que economizam tempo, evitam retrabalho e deixam a rotina mais leve.
 
-> “Eu já fiz isso antes... onde foi parar?” 😭
+Aqui você poderá encontrar utilitários para:
 
-<br>
+- datas;
+- strings;
+- arrays e objetos;
+- validações;
+- banco de dados;
+- consultas SQL;
+- snippets;
+- helpers de debug.
 
-# 📁 Estrutura
+---
 
-```txt
+## 📁 Estrutura do Projeto
+
+```text
 daily-dev-utils/
 │
 ├── javascript/
@@ -65,83 +60,31 @@ daily-dev-utils/
 │   └── consultas-uteis/
 │
 ├── outros/
-|   ├── snippets.md
+│   ├── snippets.md
 │   └── padroes-commits.md
 │
 ├── README.md
 └── LICENSE
 ```
 
-<br>
+---
 
-# ✨ Exemplo de utilitário
-Arquivos sempre terão o nome da função para melhor visualização:
+## ✨ Padrão dos arquivos
 
-Exemplo:
+Os arquivos devem ter nomes claros e relacionados ao utilitário que representam.
 
-```txt
+```text
 javascript/datas/formatarDataHora.js
 php/strings/limparTexto.php
 python/arquivos/lerCsv.py
 sql/mysql/buscarUsuariosAtivos.sql
 ```
 
-```txt
-javascript/datas/formatarDataHora.js
-```
+---
 
-```js
-/**
- * Formata uma data e hora no formato "DD/MM/AAAA HH:mm:ss" a partir de uma string
- * no formato "YYYY-MM-DD HH:mm:ss".
- *
- * @since 29/12/2025
- * @author Pricila Oliveira
- * @updated by Pricila Oliveira
- * @param {string} valor Data e hora no formato "YYYY-MM-DD HH:mm:ss"
- * @returns {string} Data formatada ou string original se inválida
- */
-function formatarDataHora(valor) {
-    if (!valor) return ''
+## 🧠 Documentação
 
-    const iso = valor.replace(' ', 'T')
-
-    const data = new Date(iso)
-    if (isNaN(data.getTime())) return valor
-
-    return data.toLocaleString('pt-BR', {
-        dateStyle: 'short',
-        timeStyle: 'medium',
-    })
-}
-
-```
-
-<br>
-
-# 💅 Categorias de utilitários
-
-Este repositório pode conter funções para:
-
-- Formatação de datas
-- Manipulação de strings
-- Manipulação de arrays
-- Manipulação de objetos
-- Validação de dados
-- Máscaras de campos
-- Funções para banco de dados
-- Scripts auxiliares
-- Snippets reutilizáveis
-- Helpers para debug
-- Consultas SQL úteis
-
-<br>
-
-# 🧠 Padrão de documentação
-
-Sempre que possível, as funções devem seguir um padrão de documentação.
-
-Exemplo:
+Sempre que possível, as funções devem conter uma documentação objetiva:
 
 ```js
 /**
@@ -155,36 +98,146 @@ Exemplo:
  */
 ```
 
-<br>
+---
 
-# 🚀 Como usar
-Clone o repositório:
+## 🚀 Como usar
+
 ```bash
 git clone https://github.com/pricila-labs/daily-dev-utils.git
-```
-
-Acesse a pasta:
-
-```bash
 cd daily-dev-utils
 ```
 
 Depois, navegue pela linguagem e categoria desejada.
 
-Exemplo:
-
-```txt
-javascript/datas/formatarDataHora.js
-```
-
-<br>
+---
 
 ## 🌷 Objetivo
-O objetivo deste projeto não é criar uma biblioteca complexa, mas sim manter uma coleção elegante, didática e reutilizável de soluções pequenas.
-Pense nele como um lugar para guardar aquelas funções que salvam tempo, evitam retrabalho e deixam o código mais bonito.
 
-Porque código útil também pode ser organizado, documentado e aesthetic. ✨
+Manter uma coleção elegante, didática e reutilizável de soluções pequenas para desenvolvimento.
+
+Porque código útil também pode ser organizado, documentado e bonito. 💅✨
 
 ---
 
 Feito com ❤️ por **Pricila Oliveira**.
+
+---
+
+## English
+
+A personal collection of functions, helpers, snippets, and utilities for everyday development. 💻✨
+
+**Daily Dev Utils** gathers small, reusable, and well-organized solutions for common problems in real projects.
+
+---
+
+## 💖 About
+
+This repository works as a developer toolbox: a place to store code that saves time, avoids rework, and makes the workflow lighter.
+
+Here you may find utilities for:
+
+- dates;
+- strings;
+- arrays and objects;
+- validations;
+- databases;
+- SQL queries;
+- snippets;
+- debug helpers.
+
+---
+
+## 📁 Project Structure
+
+```text
+daily-dev-utils/
+│
+├── javascript/
+│   ├── datas/
+│   ├── strings/
+│   ├── arrays/
+│   ├── objetos/
+│   └── validacoes/
+│
+├── php/
+│   ├── datas/
+│   ├── strings/
+│   ├── arrays/
+│   ├── banco-de-dados/
+│   └── validacoes/
+│
+├── python/
+│   ├── datas/
+│   ├── strings/
+│   ├── arquivos/
+│   └── validacoes/
+│
+├── sql/
+│   ├── mysql/
+│   ├── postgresql/
+│   └── consultas-uteis/
+│
+├── outros/
+│   ├── snippets.md
+│   └── padroes-commits.md
+│
+├── README.md
+└── LICENSE
+```
+
+> Folder and file names are kept in Portuguese to match the actual project structure.
+
+---
+
+## ✨ File Naming Pattern
+
+Files should have clear names related to the utility they represent.
+
+```text
+javascript/datas/formatarDataHora.js
+php/strings/limparTexto.php
+python/arquivos/lerCsv.py
+sql/mysql/buscarUsuariosAtivos.sql
+```
+
+---
+
+## 🧠 Documentation
+
+Whenever possible, functions should include objective documentation:
+
+```js
+/**
+ * Briefly describes what the function does.
+ *
+ * @since DD/MM/YYYY
+ * @author Pricila Oliveira
+ * @updated by Pricila Oliveira
+ * @param {type} parameterName Parameter description
+ * @returns {type} Return description
+ */
+```
+
+---
+
+## 🚀 How to Use
+
+```bash
+git clone https://github.com/pricila-labs/daily-dev-utils.git
+cd daily-dev-utils
+```
+
+Then browse the language and category you need.
+
+---
+
+## 🌷 Purpose
+
+To keep an elegant, educational, and reusable collection of small development solutions.
+
+Because useful code can also be organized, documented, and beautiful. 💅✨
+
+---
+
+Made with ❤️ by **Pricila Oliveira**.
